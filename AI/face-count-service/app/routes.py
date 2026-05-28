@@ -1,7 +1,7 @@
 from flask import Blueprint, request, jsonify
 from app.utils.image import decode_base64_image
 from app.model.detector import detector
-from app.schemas import ImageItem, FaceCount, FaceCountResponse
+from app.schemas import ImageItem, ResponseItem, ResultsResponse
 from app.utils.image import decode_base64_image
 
 
@@ -31,7 +31,7 @@ def count():
 
     for index, item in enumerate(items):
         results.append(
-            FaceCount(
+            ResponseItem(
                 call_id=item.call_id,
                 participant_id=item.participant_id,
                 score=-1,
@@ -58,6 +58,6 @@ def count():
         for batch_index, original_index in enumerate(valid_indexes):
             results[original_index].score = batch_faces[batch_index]
 
-    response = FaceCountResponse(faces=results)
+    response = ResultsResponse(results=results)
 
     return jsonify(response.model_dump()), 200

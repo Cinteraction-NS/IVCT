@@ -11,11 +11,11 @@ class ImageItem(BaseModel):
     participant_id: Optional[IdValue] = None
 
 
-class FaceCount(BaseModel):
+class ResponseItem(BaseModel):
     call_id: Optional[IdValue] = None
     participant_id: Optional[IdValue] = None
     score: int
 
 
-class FaceCountResponse(BaseModel):
-    faces: List[FaceCount]
+class ResultsResponse(BaseModel):
+    results: List[ResponseItem]

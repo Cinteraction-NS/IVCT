@@ -1,1 +1,1 @@
-# Intelligent Video Conferencing Platform
+# Intelligent Video Conferencing Toolkit
