@@ -1,0 +1,33 @@
+<!-- Copyright (c) Microsoft Corporation. All rights reserved. Licensed under the MIT License. -->
+
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
+    <!-- Office JavaScript API -->
+    <script type="text/javascript" src="https://appsforoffice.microsoft.com/lib/1.1/hosted/office.js"></script>
+
+    <script>
+      Office.onReady((info) => {
+        if (info.host === Office.HostType.Outlook) {
+          console.log("Office.js is ready for Outlook");
+          // Initialization code here
+          initializeApp();
+        }
+      });
+  
+      function initializeApp() {
+        console.log("App initialized");
+        // Your custom logic here
+      }
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <script type="text/javascript" src="../taskpane/auth.js"></script>
+    <script type="text/javascript" src="../launchevent/launchevent.js"></script>
+  </head>
+  <body></body>
+</html>

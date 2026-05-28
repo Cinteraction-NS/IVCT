@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base href="/web/" />
+    <meta
+      name="google-signin-client_id"
+      content="86369065781-lpajm2ln4bu8ds7vlb6780rmq0evae3o.apps.googleusercontent.com"
+    />
+
+    <meta charset="UTF-8" />
+    <meta content="IE=Edge" http-equiv="X-UA-Compatible" />
+    <meta
+      name="description"
+      content="Flutter project for Cinteraction Virtual Classroom"
+    />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src * blob: data: 'unsafe-inline' 'unsafe-eval';"
+    />
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="apple-mobile-web-app-title" content="cinteraction_vc" />
+    <link rel="apple-touch-icon" href="icons/Icon-192.png" />
+
+    <link rel="icon" type="image/png" href="favicon.png" />
+
+    <title>CinteractionVC</title>
+
+    <link rel="manifest" href="manifest.json" />
+    <!--  <script src="https://cdn.jsdelivr.net/npm/@ffmpeg/ffmpeg@latest/dist/ffmpeg.min.js" defer></script>-->
+    <script src="flutter.js" defer></script>
+    <!--  <script src="https://unpkg.com/@ffmpeg/ffmpeg"></script>-->
+    <!-- Include FFmpeg library after Flutter -->
+    <script src="coi-serviceworker.min.js"></script>
+
+    <script src="ffmpeg.js" defer></script>
+
+    <!--  <script src="merge_streams.js"></script>-->
+    <script src="concatenate_streams_normalize.js"></script>
+  </head>
+  <body>
+    <!-- ✅ Paste image listener (safe & production-ready) -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        window.addEventListener("paste", async (event) => {
+          const items = event.clipboardData?.items;
+          if (!items) return;
+
+          for (let item of items) {
+            if (item.type.indexOf("image") === 0) {
+              const blob = item.getAsFile();
+              const arrayBuffer = await blob.arrayBuffer();
+              const byteArray = Array.from(new Uint8Array(arrayBuffer));
+
+              const customEvent = new CustomEvent("pasted-file", {
+                detail: {
+                  name: "pasted_image_" + Date.now() + ".png",
+                  data: byteArray,
+                },
+              });
+
+              console.log(
+                "Dispatching 'pasted-file' event",
+                customEvent.detail
+              );
+              window.dispatchEvent(customEvent);
+            }
+          }
+        });
+      });
+    </script>
+    <script src="flutter_bootstrap.js" async></script>
+  </body>
+</html>
