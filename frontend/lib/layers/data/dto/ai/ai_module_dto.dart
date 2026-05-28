@@ -4,6 +4,7 @@ class ModuleDto {
   final String url;
   final int enabled;
   final int isGlobal;
+  bool isPercentage = true;
 
   ModuleDto({
     required this.id,

@@ -24,7 +24,7 @@ abstract class Api {
   Future<String?> socialLogin({required provider, required token});
   Future<ApiResponse<UserDto?>> getUserDetails();
 
-  Future<({double? score, String name})?> getModuleScore({
+  Future<({double? score, String name, bool isPercentage})?> getModuleScore({
     required String url,
     required String name,
     required int callId,

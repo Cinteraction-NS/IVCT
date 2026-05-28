@@ -309,7 +309,7 @@ class ApiImpl extends Api {
   }
 
   @override
-  Future<({double score, String name})?> getModuleScore({
+  Future<({double score, String name, bool isPercentage})?> getModuleScore({
     required String url,
     required String name,
     required int callId,
@@ -330,12 +330,14 @@ class ApiImpl extends Api {
       if (responseData is Map && responseData.isNotEmpty) {
         final firstKey = responseData.keys.first;
         final score = responseData[firstKey]?[0]?['score'];
+        final isPercentage = responseData["percentage"] as bool? ?? true;
 
         if (score != null) {
           print('module: $name, score: $score');
           return (
             score: double.parse(score.toString()),
             name: name.toLowerCase(),
+            isPercentage: isPercentage
           );
         }
       }

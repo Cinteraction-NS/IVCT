@@ -116,8 +116,13 @@ class ParticipantVideoWidget extends StatelessWidget {
                                                         entry.key.id)),
                                       ),
                                       const SizedBox(height: 3),
-                                      EngagementProgress(
-                                          engagement: entry.value),
+                                      entry.key.isPercentage ? EngagementProgress(engagement: entry.value) :
+                                    Text(
+                                          "${entry.value}",
+                                          style: context.textTheme.bodyLarge
+                                              ?.copyWith(
+                                              color: ColorConstants.kWhite),
+                                        ),
                                       const SizedBox(height: 10),
                                     ])
                                 .toList(),
