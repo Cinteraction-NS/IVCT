@@ -1,0 +1,32 @@
+version: "3.6"
+services:
+
+  face_counter_service:
+    build: ./face-count-service
+    image: face_counter
+    restart: unless-stopped
+    networks:
+      - microservices
+    deploy:
+      mode: replicated
+      replicas: 1
+
+  nginx:
+    build:
+      dockerfile: ./Dockerfile
+      context: ./api_gateway/
+    image: nginx
+    user: root
+    ports:
+      - "443:443"
+      # - "80:80"
+    networks:
+      - microservices
+    depends_on:
+      - "face_counter_service"
+    volumes:
+      - ./ssl_certs/:/etc/nginx/ssl/
+
+networks:
+  microservices:
+    driver: bridge

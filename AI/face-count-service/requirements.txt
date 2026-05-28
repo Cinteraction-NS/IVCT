@@ -1,0 +1,13 @@
+flask
+waitress
+
+cython
+pillow
+pydantic-settings
+numpy
+
+torch
+torchvision
+opencv-python-headless
+
+scikit-image
