@@ -316,7 +316,7 @@ The service returns a list of face count results.
 
 ```json
 {
-  "faces": [
+  "results": [
     {
       "call_id": 158,
       "participant_id": "2",
@@ -472,3 +472,13 @@ docker compose down
 docker compose build --no-cache
 docker compose up
 ```
+
+## Extending the AI Module
+
+The AI module can be extended by adding new Dockerized AI plugin services.
+
+Each plugin should be implemented as a separate service, connected to the same Docker network, and exposed through the Nginx API gateway.
+
+For detailed instructions, see:
+
+[Adding a New AI Plugin](ADDING_AI_PLUGIN.md)
