@@ -1,4 +1,4 @@
-# Intelligent Video Conferencing Platform
+# Intelligent Video Conferencing Toolkit
 
 A Flutter web application for video conferencing built on top of the Janus WebRTC Gateway.
 
@@ -80,7 +80,7 @@ The output will be available in the `build/web/` directory.
 
 ## AI Module Testing
 
-The application supports a pluggable AI engagement analysis module. For testing purposes, you can implement a custom AI module of your choice — the only requirement is that it conforms to the expected request/response contract.
+The application supports a pluggable AI face-counter module. For testing purposes, you can implement a custom AI module of your choice — the only requirement is that it conforms to the expected request/response contract.
 
 ### Request
 
@@ -106,11 +106,11 @@ The AI module must return a JSON response in the following format:
 
 ```json
 {
-  "engagements": [
+  "results": [
     {
       "call_id": 158,
       "participant_id": "2",
-      "score": 0.7978
+      "score": 3
     }
   ]
 }
@@ -120,7 +120,7 @@ The AI module must return a JSON response in the following format:
 |-------|------|-------------|
 | `call_id` | integer | Must match the `call_id` from the request |
 | `participant_id` | string | Must match the `participant_id` from the request |
-| `score` | float | Engagement score between `0.0` (no engagement) and `1.0` (full engagement) |
+| `score` | integer | Number of detected faces for the participant|
 
 ### Example Stub (Python/Flask)
 
@@ -135,11 +135,11 @@ app = Flask(__name__)
 def analyze():
     data = request.json
     return jsonify({
-        "engagements": [
+        "results": [
             {
                 "call_id": data["call_id"],
                 "participant_id": data["participant_id"],
-                "score": 0.85
+                "score": 1
             }
         ]
     })

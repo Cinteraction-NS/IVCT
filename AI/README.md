@@ -1,8 +1,8 @@
-# Intelligent Video Conferencing Platform
+# Intelligent Video Conferencing Toolkit
 
 ## AI Module
 
-AI module for the Intelligent Video Conferencing Platform.
+AI module for the Intelligent Video Conferencing Toolkit.
 
 This module provides a Dockerized face-counting service that receives base64-encoded video frames or images and returns the number of detected faces.
 
@@ -338,7 +338,7 @@ Example:
 
 ```json
 {
-  "faces": [
+  "results": [
     {
       "call_id": 158,
       "participant_id": "2",

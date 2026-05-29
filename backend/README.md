@@ -1,4 +1,4 @@
-# Cinteraction API
+# Intelligent Video Conferencing Toolkit API
 
 ## Installation
 
