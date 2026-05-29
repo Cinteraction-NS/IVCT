@@ -69,12 +69,12 @@ authoritative license text.
 
 
 ================================================================================
-REFERENCE FACE DETECTOR (RetinaFace) — NOTE
+REFERENCE FACE DETECTOR (FaceBoxes) — NOTE
 ================================================================================
 
-The reference face-counter plugin in plugins/face-counter/ wraps a pre-trained
-face detector. By default it uses RetinaFace [Deng et al., CVPR 2020]. The
-plugin's own glue code is MIT licensed (see plugins/face-counter/LICENSE),
+The reference face-counter plugin in AI/face-count-service/ wraps a pre-trained
+face detector. By default it uses FaceBoxes [Zhang et al., IJCB 2017]. The
+plugin's own glue code is MIT licensed (see AI/face-count-service/LICENSE),
 but the detector weights and inference library are distributed by their
 upstream authors under their own licenses, which should be reviewed before
 production use. The plugin's README documents how to swap in a different
@@ -86,7 +86,7 @@ CONTRIBUTING
 ================================================================================
 
 Contributions to the framework are accepted under GPL-3.0-only. Contributions
-to plugins/face-counter/ are accepted under MIT. Contributors are asked to
+to AI/face-count-service/ are accepted under MIT. Contributors are asked to
 sign a Contributor License Agreement (CLA) on their first contribution; this
 allows Cinteraction to continue offering an alternative commercial license
 for the framework. See CONTRIBUTING.md for details.
