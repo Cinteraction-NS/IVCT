@@ -22,7 +22,7 @@ pull request.
   plugins from the README; please open an issue rather than a pull
   request.
 - **Security issues:** please *do not* open a public issue. Email
-  `[security@cinteraction.com]` so we can coordinate a fix and a
+  `support@cinteraction.com` so we can coordinate a fix and a
   disclosure timeline.
 
 ## Licensing of contributions
@@ -32,7 +32,7 @@ Contributions follow the license of the directory they touch:
 
 - Contributions to the framework, services, and dashboards are
   accepted under **GPL-3.0-only**.
-- Contributions to `plugins/face-counter/` and `docs/plugin-author/`
+- Contributions to `plugins/face-count-service/` and `docs/plugin-author/`
   are accepted under **MIT**.
 
 Every new source file should carry an `SPDX-License-Identifier`
