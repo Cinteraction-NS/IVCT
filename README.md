@@ -102,3 +102,74 @@ Example AI service response:
     }
   ]
 }
+```
+
+## Licensing
+
+IVCT uses a two-tier licensing model. **Read this section before
+you contribute or deploy.**
+
+### The framework — GPL-3.0-only
+
+Everything except `AI/face-count-service/` and `docs/plugin-author/`
+is licensed under the GNU General Public License, version 3. The
+full text is in [`LICENSE`](LICENSE). This is the same license used
+by the upstream Janus gateway on which IVCT depends.
+
+If you modify the framework and distribute the modified version,
+GPL-3.0 requires you to release your modifications under the same
+license. Running a modified version of the framework as a service
+does *not* trigger source-release obligations — IVCT deliberately
+uses GPL-3.0 rather than AGPL-3.0 for this reason, following the
+precedent set by Janus when its authors relicensed from AGPL-3.0 to
+GPL-3.0.
+
+### The reference plugin and the plugin author guide — MIT
+
+The reference face-counter plugin in `AI/face-count-service/` and the
+plugin author guide in `docs/plugin-author/` are licensed under the
+MIT License (see [`AI/face-count-service/LICENSE`](AI/face-count-service/LICENSE)).
+The permissive licensing is deliberate: it signals that any analysis
+module you write for IVCT — including model weights, training code,
+and any pre- or post-processing — is yours to license as you choose.
+
+### Are third-party plugins derivative works of the framework?
+
+**No.** The plugin interface is a documented inter-process REST
+contract; plugins run in their own container, in their own process,
+and never link against any framework code. In the standard reading
+of GPL-3.0, such independent programs are not derivative works of
+the framework even though they cooperate with it at runtime. Plugin
+authors are free to license their plugins under any license they
+choose, including proprietary licenses.
+
+This boundary is described in more detail in
+[`docs/plugin-author/licensing.md`](docs/plugin-author/licensing.md).
+If you have a specific question about a particular plugin's
+licensing posture, please open an issue or contact us before
+deploying in production.
+
+### Commercial licensing
+
+An alternative commercial license for the framework is available on
+request for organisations whose business model is incompatible with
+GPL-3.0 obligations. Contact: `kresimir.krsto@cinteraction.com`.
+
+### SPDX headers
+
+Every source file in this repository carries an
+`SPDX-License-Identifier` header recording which of the two licenses
+applies. Tooling that scans for SPDX metadata (Reuse, FOSSology,
+Scancode, etc.) will see the correct license for each file without
+manual intervention.
+
+### Bundled and required third-party components
+
+A non-exhaustive list of the licenses of the components IVCT
+depends on is in [`NOTICE`](NOTICE).
+
+## Contact
+
+- Code and issues: [GitHub URL]
+- Commercial licensing: `kresimir.krstot@cinteraction.com`
+- Research enquiries: `dubravko.culibrk@cinteraction.com`
