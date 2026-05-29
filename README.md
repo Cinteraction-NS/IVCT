@@ -171,5 +171,5 @@ depends on is in [`NOTICE`](NOTICE).
 ## Contact
 
 - Code and issues: https://github.com/Cinteraction-NS/IVCT/
-- Commercial licensing: `kresimir.krstot@cinteraction.com`
+- Commercial licensing: `kresimir.krsto@cinteraction.com`
 - Research enquiries: `dubravko.culibrk@cinteraction.com`
