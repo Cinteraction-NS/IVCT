@@ -1,0 +1,92 @@
+Intelligent Video Conferencing Toolkit (IVCT)
+Copyright (c) 2026 Cinteraction d.o.o. and the IVCT contributors
+
+
+================================================================================
+LICENSING MODEL
+================================================================================
+
+IVCT is released under a two-tier licensing scheme:
+
+  1. The framework — the WebRTC application, the reverse proxy and
+     authentication service, the PostgreSQL schema and migrations, the
+     dashboards, the persistence layer, and all code at the root of this
+     repository except where explicitly noted otherwise — is licensed under
+     the GNU General Public License, version 3 (GPL-3.0-only). The full text
+     is in the file LICENSE at the root of this repository, and is also
+     available at LICENSES/GPL-3.0-only.txt.
+
+  2. The reference face-counter plugin in plugins/face-counter/ and the
+     plugin author guide are licensed under the MIT License. The full text
+     is in plugins/face-counter/LICENSE, and the canonical text is at
+     LICENSES/MIT.txt.
+
+Every source file in this repository carries an SPDX-License-Identifier
+header recording which of the two licenses applies to it. The SPDX
+identifiers used are:
+
+    GPL-3.0-only   for the framework
+    MIT            for the reference plugin and the plugin author guide
+
+Third-party plugins that communicate with the framework only over the
+documented REST plugin interface, running in their own process or container,
+are independent works in the standard reading of GPL-3.0 and are not
+considered derivative works of the framework. Plugin authors are therefore
+free to license their plugins under any license they choose, including
+proprietary licenses. The plugin author guide describes this boundary in
+more detail.
+
+An alternative commercial license for the framework is available on request
+from Cinteraction d.o.o. for organisations whose business model is
+incompatible with GPL-3.0 obligations. Contact: [licensing@cinteraction.com].
+
+
+================================================================================
+BUNDLED AND REQUIRED THIRD-PARTY COMPONENTS
+================================================================================
+
+The following components are required at runtime by IVCT but are not bundled
+in this repository. Each is licensed independently by its upstream authors.
+This list is informational; consult each upstream project for the
+authoritative license text.
+
+  Janus WebRTC Server        GPL-3.0-only         https://janus.conf.meetecho.com
+                             (with Meetecho OpenSSL exception)
+
+  WebRTC                     BSD-3-Clause         https://webrtc.googlesource.com
+                             (with a separate patent grant)
+
+  Nginx                      BSD-2-Clause         https://nginx.org
+
+  Flask                      BSD-3-Clause         https://flask.palletsprojects.com
+
+  PostgreSQL                 PostgreSQL License   https://www.postgresql.org
+                             (a permissive BSD/MIT-style license)
+
+  SQLAlchemy                 MIT                  https://www.sqlalchemy.org
+
+  Docker / Docker Compose    Apache-2.0           https://docs.docker.com
+
+
+================================================================================
+REFERENCE FACE DETECTOR (RetinaFace) — NOTE
+================================================================================
+
+The reference face-counter plugin in plugins/face-counter/ wraps a pre-trained
+face detector. By default it uses RetinaFace [Deng et al., CVPR 2020]. The
+plugin's own glue code is MIT licensed (see plugins/face-counter/LICENSE),
+but the detector weights and inference library are distributed by their
+upstream authors under their own licenses, which should be reviewed before
+production use. The plugin's README documents how to swap in a different
+detector.
+
+
+================================================================================
+CONTRIBUTING
+================================================================================
+
+Contributions to the framework are accepted under GPL-3.0-only. Contributions
+to plugins/face-counter/ are accepted under MIT. Contributors are asked to
+sign a Contributor License Agreement (CLA) on their first contribution; this
+allows Cinteraction to continue offering an alternative commercial license
+for the framework. See CONTRIBUTING.md for details.
