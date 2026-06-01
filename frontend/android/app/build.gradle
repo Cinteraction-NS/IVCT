@@ -58,13 +58,6 @@ android {
             // TODO: Add your own signing config for the release build.
             // Signing with the debug keys for now, so `flutter run --release` works.
             signingConfig signingConfigs.debug
-
-            firebaseAppDistribution {
-                appId = "1:86369065781:android:a8fcc67f4fbfce4d9d8a7c"
-                releaseNotes = ""
-                groups = "Tester"
-                serviceCredentialsFile = "app/cinteractionvc-firebase-adminsdk.json"
-            }
         }
     }
 }
